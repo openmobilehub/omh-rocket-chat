@@ -17972,11 +17972,13 @@ react-native-screens@3.29.0:
     warn-once "^0.1.0"
 
 react-native-scrollable-tab-view@ptomasroos/react-native-scrollable-tab-view:
-  version "1.0.0"
-  resolved "https://codeload.github.com/ptomasroos/react-native-scrollable-tab-view/tar.gz/a7f46de184123be9703c57b0a7618ae0557c8a87"
+  version "1.1.0"
+  uid "583a66f7fd3eb2cac1a05c71d7167d78a8ad9de6"
+  resolved "https://codeload.github.com/ptomasroos/react-native-scrollable-tab-view/tar.gz/583a66f7fd3eb2cac1a05c71d7167d78a8ad9de6"
   dependencies:
     "@react-native-community/viewpager" "3.3.0"
     create-react-class "^15.6.2"
+    deprecated-react-native-prop-types "^2.3.0"
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.3"
 
@@ -19675,7 +19677,6 @@ string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0:
     strip-ansi "^6.0.0"
 
 string-width@^4.2.3:
-  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -19839,7 +19840,6 @@ strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
     ansi-regex "^4.1.0"
 
 strip-ansi@^6.0.1:
-  name strip-ansi-cjs
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
