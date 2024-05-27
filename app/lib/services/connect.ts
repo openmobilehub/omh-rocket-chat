@@ -287,39 +287,45 @@ function stopListener(listener: any): boolean {
 
 async function login(credentials: ICredentials, isFromWebView = false): Promise<ILoggedUser | undefined> {
 	// RC 0.64.0
-	await sdk.current.login(credentials);
-	const serverVersion = store.getState().server.version;
-	const result = sdk.current.currentLogin?.result;
+	console.log('BEFORE');
+	try {
+		await sdk.current.login(credentials);
+		const serverVersion = store.getState().server.version;
+		const result = sdk.current.currentLogin?.result;
+		console.log('bbb', result);
 
-	let enableMessageParserEarlyAdoption = true;
-	let showMessageInMainThread = false;
-	if (compareServerVersion(serverVersion, 'lowerThan', '5.0.0')) {
-		enableMessageParserEarlyAdoption = result.me.settings?.preferences?.enableMessageParserEarlyAdoption ?? true;
-		showMessageInMainThread = result.me.settings?.preferences?.showMessageInMainThread ?? true;
-	}
+		let enableMessageParserEarlyAdoption = true;
+		let showMessageInMainThread = false;
+		if (compareServerVersion(serverVersion, 'lowerThan', '5.0.0')) {
+			enableMessageParserEarlyAdoption = result.me.settings?.preferences?.enableMessageParserEarlyAdoption ?? true;
+			showMessageInMainThread = result.me.settings?.preferences?.showMessageInMainThread ?? true;
+		}
 
-	if (result) {
-		const user: ILoggedUser = {
-			id: result.userId,
-			token: result.authToken,
-			username: result.me.username,
-			name: result.me.name,
-			language: result.me.language,
-			status: result.me.status,
-			statusText: result.me.statusText,
-			customFields: result.me.customFields,
-			statusLivechat: result.me.statusLivechat,
-			emails: result.me.emails,
-			roles: result.me.roles,
-			avatarETag: result.me.avatarETag,
-			isFromWebView,
-			showMessageInMainThread,
-			enableMessageParserEarlyAdoption,
-			alsoSendThreadToChannel: result.me.settings?.preferences?.alsoSendThreadToChannel,
-			bio: result.me.bio,
-			nickname: result.me.nickname
-		};
-		return user;
+		if (result) {
+			const user: ILoggedUser = {
+				id: result.userId,
+				token: result.authToken,
+				username: result.me.username,
+				name: result.me.name,
+				language: result.me.language,
+				status: result.me.status,
+				statusText: result.me.statusText,
+				customFields: result.me.customFields,
+				statusLivechat: result.me.statusLivechat,
+				emails: result.me.emails,
+				roles: result.me.roles,
+				avatarETag: result.me.avatarETag,
+				isFromWebView,
+				showMessageInMainThread,
+				enableMessageParserEarlyAdoption,
+				alsoSendThreadToChannel: result.me.settings?.preferences?.alsoSendThreadToChannel,
+				bio: result.me.bio,
+				nickname: result.me.nickname
+			};
+			return user;
+		}
+	} catch (e) {
+		console.log('ERROR', e);
 	}
 }
 

@@ -1,12 +1,15 @@
 import * as AppleAuthentication from 'expo-apple-authentication';
-import { Linking } from 'react-native';
+import { Alert, Linking } from 'react-native';
+import AuthGoogle from '@openmobilehub/auth-google';
 import { Base64 } from 'js-base64';
 
+import { loginRequest } from '../../actions/login';
 import { Services } from '../../lib/services';
 import Navigation from '../../lib/navigation/appNavigation';
 import { IItemService, IOpenOAuth, IServiceLogin } from './interfaces';
 import { random } from '../../lib/methods/helpers';
 import { events, logEvent } from '../../lib/methods/helpers/log';
+import store from '../../lib/store';
 
 type TLoginStyle = 'popup' | 'redirect';
 
@@ -46,13 +49,40 @@ export const onPressGitlab = ({ service, server, urlOption }: IServiceLogin) => 
 
 export const onPressGoogle = ({ service, server }: IServiceLogin) => {
 	logEvent(events.ENTER_WITH_GOOGLE);
-	const { clientId } = service;
-	const endpoint = 'https://accounts.google.com/o/oauth2/auth';
-	const redirect_uri = `${server}/_oauth/google?close`;
-	const scope = 'email';
-	const state = getOAuthState('redirect');
-	const params = `?client_id=${clientId}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}&response_type=code`;
-	Linking.openURL(`${endpoint}${params}`);
+	// const { clientId } = service;
+	// const endpoint = 'https://accounts.google.com/o/oauth2/auth';
+	// const redirect_uri = `${server}/_oauth/google?close`;
+	// const scope = 'email';
+	// const state = getOAuthState('redirect');
+	// const params = `?client_id=${clientId}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}&response_type=code`;
+	// Linking.openURL(`${endpoint}${params}`);
+	const GOOGLE_CLIENT_ID = '56689446207-ianfr0do5nrnkianhncsr94do8jue26j.apps.googleusercontent.com';
+
+	(async () => {
+		try {
+			await AuthGoogle.initialize({
+				android: {
+					scopes: ['openid', 'profile', 'email']
+				},
+				ios: {
+					scopes: ['openid', 'profile', 'email'],
+					clientId: GOOGLE_CLIENT_ID,
+					redirectUrl: `com.googleusercontent.apps.${GOOGLE_CLIENT_ID.split('.')[0]}:/oauth2redirect/google`
+				}
+			});
+
+			await AuthGoogle.signIn();
+			const user = await AuthGoogle.getUser();
+			const token = await AuthGoogle.getAccessToken();
+
+			console.log(user);
+			console.log(token);
+
+			Alert.alert('Google Logged In', `User: ${user.email}, Token: ${token}`);
+		} catch (e) {
+			Alert.alert('Google Login Error', (e as Error).message);
+		}
+	})();
 };
 
 export const onPressLinkedin = ({ service, server }: IServiceLogin) => {

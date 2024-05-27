@@ -14,10 +14,13 @@
 // https://github.com/expo/expo/issues/17705#issuecomment-1196251146
 #import "ExpoModulesCore-Swift.h"
 #import "RocketChatRN-Swift.h"
+#import <React/RCTLinkingManager.h>
+#import "RNAppAuthAuthorizationFlowManager.h"
 
-@interface AppDelegate : EXAppDelegateWrapper <UIApplicationDelegate, RCTBridgeDelegate>
+@interface AppDelegate : EXAppDelegateWrapper <UIApplicationDelegate, RCTBridgeDelegate, RNAppAuthAuthorizationFlowManager>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) WatchConnection *watchConnection;
+@property(nonatomic, weak) id<RNAppAuthAuthorizationFlowManagerDelegate> authorizationFlowManagerDelegate;
 
 @end

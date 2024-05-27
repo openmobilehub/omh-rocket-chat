@@ -19,6 +19,11 @@ module.exports = {
 			platforms: {
 				ios: null
 			}
+		},
+		'react-native-app-auth': {
+			platforms: {
+				android: null
+			}
 		}
 	}
 };

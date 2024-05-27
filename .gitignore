@@ -30,7 +30,6 @@ ios/Pods/
 build/
 .idea
 .gradle
-local.properties
 *.iml
 
 # node.js
@@ -44,7 +43,6 @@ coverage/
 # BUCK
 buck-out/
 \.buckd/
-*.keystore
 *.jks
 
 # fastlane

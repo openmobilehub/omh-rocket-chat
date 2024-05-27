@@ -81,10 +81,12 @@ const handleLoginRequest = function* handleLoginRequest({
 	registerCustomFields
 }) {
 	logEvent(events.LOGIN_DEFAULT_LOGIN);
+	console.log('credentials', credentials);
 	try {
 		let result;
 		if (credentials.resume) {
 			result = yield loginCall(credentials, isFromWebView);
+			console.log('aaa', result);
 		} else {
 			result = yield call(loginWithPasswordCall, credentials);
 		}
