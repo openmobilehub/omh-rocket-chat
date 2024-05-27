@@ -6720,10 +6720,10 @@
   resolved "https://registry.yarnpkg.com/@types/react-native-background-timer/-/react-native-background-timer-2.0.0.tgz#c44c57f8fbca9d9d5521fdd72a8f55232b79381e"
   integrity sha512-y5VW82dL/ESOLg+5QQHyBdsFVA4ZklENxmOyxv8o06T+3HBG2JOSuz/CIPz1vKdB7dmWDGPZNuPosdtnp+xv2A==
 
-"@types/react-native-config-reader@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-native-config-reader/-/react-native-config-reader-4.1.0.tgz#33066cd0452b86b605b41bed47b38470dd85d428"
-  integrity sha512-meRB7e21CUmeS+so51CthLRQxZBymHZoDpq3UaDQHP9ucYbdeA7E0WFoI9vQE1h6kX3Mau3wyU2wQTZiD2674Q==
+"@types/react-native-config-reader@^4.1.3":
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/@types/react-native-config-reader/-/react-native-config-reader-4.1.3.tgz#fe6566b8e2a54c1ec962da946674f6fc763ce8fb"
+  integrity sha512-AjBqk0MQKnuQRdyMD3mcBNVwxSlf30HWqzMOTjOYj4JGCSTijv+8JKUokOOicpRxcpQdaHu3umFHL6oat9vRJA==
 
 "@types/react-native-platform-touchable@^1.1.2":
   version "1.1.2"
@@ -19675,7 +19675,6 @@ string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0:
     strip-ansi "^6.0.0"
 
 string-width@^4.2.3:
-  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -19839,7 +19838,6 @@ strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
     ansi-regex "^4.1.0"
 
 strip-ansi@^6.0.1:
-  name strip-ansi-cjs
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
